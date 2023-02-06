@@ -29,7 +29,7 @@
     "lodash": "^4.17.21",
     "minecraft-server-util": "^5.3.2",
     "mysql": "^2.18.1",
-    "node-fetch": "^2.6.8",
+    "node-fetch": "^3.3.0",
     "node-nbt": "^1.0.0",
     "nodemon": "^2.0.20",
     "os": "^0.1.2",
