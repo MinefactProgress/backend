@@ -2,7 +2,7 @@
 
 import { Request, Response } from "express";
 
-const mung = require("express-mung");
+const { jsonMiddleware } = require("express-response-middleware");
 
 export function generateResponse(body: any, req: Request, res: Response) {
   if (!body.forceNoFormat) {
@@ -22,4 +22,4 @@ export function generateResponse(body: any, req: Request, res: Response) {
   }
 }
 
-export default mung.json(generateResponse, { mungError: true });
+export default jsonMiddleware(generateResponse);
