@@ -195,17 +195,13 @@ function trackPlayerCount() {
       `Updating Player Count for ${date.toISOString().split("T")[0]}`
     );
     let playerStat = await PlayerStat.findOneBy({
-      date: new Date(
-        `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-      ),
+      date: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
     });
 
     if (!playerStat) {
       await createMissingDayEntries();
       playerStat = await PlayerStat.findOneBy({
-        date: new Date(
-          `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-        ),
+        date: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
       });
     }
 
@@ -263,9 +259,7 @@ async function trackProjectCount() {
         }
         const date = new Date();
         var project = await ProjectCount.findOneBy({
-          date: new Date(
-            `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-          ),
+          date: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
         });
 
         // Update Cache
