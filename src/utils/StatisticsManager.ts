@@ -21,17 +21,13 @@ export const trackRequestStatistics = (
 
     const date = new Date();
     let count = await Statistic.findOneBy({
-      date: new Date(
-        `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-      ),
+      date: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
     });
 
     if (!count) {
       await createMissingDays();
       count = await Statistic.findOneBy({
-        date: new Date(
-          `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-        ),
+        date: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
       });
     }
 
