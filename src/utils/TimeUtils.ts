@@ -233,7 +233,7 @@ function trackPlayerCount() {
 async function trackProjectCount() {
   executeEveryXMinutesStartingNow(async function () {
     await DATABASES.MineFactServernetzwerk.query(
-      "SELECT * FROM `BuildingServers`",
+      "SELECT * FROM `NetworkServers`",
       async (error, results, fields) => {
         if (error) {
           Logger.error(error);
@@ -247,7 +247,7 @@ async function trackProjectCount() {
 
         if (!results) {
           Logger.error(
-            "Error occurred while getting data from BuildingServers table"
+            "Error occurred while getting data from NetworkServers table",
           );
           return;
         }
